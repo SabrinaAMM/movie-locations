@@ -1,0 +1,70 @@
+{
+  "movies": [
+    {
+      "id": 1,
+      "title": "Lord of the Ring: The Fellowship of the Ring",
+      "location": [
+        {
+          "name": "Hobbiton",
+          "coords": {
+            "lat": "-37.87200709489057",
+            "lng": "175.6828871385415"
+          },
+          "img": "img/hobbiton.jpg"
+        },
+        {
+          "name": "Rivendell",
+          "coords": {
+            "lat": "-41.06690303061438",
+            "lng": "175.19817736302488"
+          },
+          "img": "img/rivendell.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Lord of the Ring: The Two Towers",
+      "location": [
+        {
+          "name": "Dimholt Road",
+          "coords": {
+            "lat": "-41.44887203956136",
+            "lng": "175.22344097310213"
+          },
+          "img": "img/dimholt.jpg"
+        },
+        {
+          "name": "Edoras",
+          "coords": {
+            "lat": "-43.54818357408336",
+            "lng": "170.8931808759241"
+          },
+          "img": "img/edoras.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Lord of the Ring: The Return of the King",
+      "location": [
+        {
+          "name": "Mount Doom",
+          "coords": {
+            "lat": "-39.155767447237864",
+            "lng": "175.62996262039974"
+          },
+          "img": "img/mount_doom.jpg"
+        },
+        {
+          "name": "Minas Tirith",
+          "coords": {
+            "lat": "-41.15843685948834",
+            "lng": "174.97107354404926"
+          },
+          "img": "img/minas_tirith.jpg"
+        }
+      ]
+    }
+  ]
+}
