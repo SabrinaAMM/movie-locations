@@ -21,17 +21,29 @@ class App {
   }
 
   _getPosition() {
-    if (navigator.geolocation);
-    navigator.geolocation.getCurrentPosition(
-      this._loadMap.bind(this),
+    if (navigator.geolocation)
+      navigator.geolocation.getCurrentPosition(
+        this._loadMap.bind(this),
 
-      function () {
-        alert('Could not get your position');
-      }
-    );
+        this._loadFallBackMap.bind(this)
+      );
+  }
+
+  _loadFallBackMap() {
+    (this.#map = L.map('map').setView(
+      [51.07840724005688, 10.519202395753993],
+      6
+    )),
+      L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+        attribution:
+          '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      }).addTo(this.#map);
+
+    this.#markerLayer = L.layerGroup().addTo(this.#map);
   }
 
   _loadMap(position) {
+    console.log(position);
     const { latitude } = position.coords;
     const { longitude } = position.coords;
 
