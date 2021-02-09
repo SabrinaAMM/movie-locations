@@ -9,15 +9,16 @@ class App {
   constructor() {
     this._getPosition();
     this._getJson();
-    this._renderMovieMenu();
   }
 
   _getJson() {
-    let request = new XMLHttpRequest();
-    request.open('GET', 'locations.json', false);
-    request.send(null);
-    let json = JSON.parse(request.responseText);
-    this.#movies = json.movies;
+    fetch('locations.json')
+      .then(response => response.json())
+
+      .then(data => {
+        this.#movies = data.movies;
+        this._renderMovieMenu();
+      });
   }
 
   _getPosition() {
@@ -43,7 +44,6 @@ class App {
   }
 
   _loadMap(position) {
-    console.log(position);
     const { latitude } = position.coords;
     const { longitude } = position.coords;
 
