@@ -22,12 +22,16 @@ class App {
   }
 
   _getPosition() {
-    if (navigator.geolocation)
-      navigator.geolocation.getCurrentPosition(
-        this._loadMap.bind(this),
+    const options = {
+      timeout: 4000,
+    };
 
-        this._loadFallBackMap.bind(this)
-      );
+    if (navigator.geolocation)
+      return new Promise(function (resolve, reject) {
+        navigator.geolocation.getCurrentPosition(resolve, reject, options);
+      })
+        .then(position => this._loadMap(position))
+        .catch(this._loadFallBackMap.bind(this));
   }
 
   _loadFallBackMap() {
