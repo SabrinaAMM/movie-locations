@@ -21,21 +21,12 @@ class App {
       });
   }
 
-  // _getPosition() {
-  //   if (navigator.geolocation)
-  //     navigator.geolocation.getCurrentPosition(
-  //       this._loadMap.bind(this),
-
-  //       this._loadFallBackMap.bind(this)
-  //     );
-  // }
-
   _getPosition() {
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
-        position => this._loadMap.bind(position),
+        this._loadMap.bind(this),
 
-        err => this._loadFallBackMap.bind(err)
+        this._loadFallBackMap.bind(this)
       );
   }
 
