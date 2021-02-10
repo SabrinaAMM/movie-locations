@@ -11,14 +11,11 @@ class App {
     this._getJson();
   }
 
-  _getJson() {
-    fetch('locations.json')
-      .then(response => response.json())
-
-      .then(data => {
-        this.#movies = data.movies;
-        this._renderMovieMenu();
-      });
+  async _getJson() {
+    const response = await fetch('locations.json');
+    const data = await response.json();
+    this.#movies = data.movies;
+    this._renderMovieMenu();
   }
 
   _getPosition() {
