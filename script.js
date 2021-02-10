@@ -20,12 +20,21 @@ class App {
     this.#movies = json.movies;
   }
 
+  // _getPosition() {
+  //   if (navigator.geolocation)
+  //     navigator.geolocation.getCurrentPosition(
+  //       this._loadMap.bind(this),
+
+  //       this._loadFallBackMap.bind(this)
+  //     );
+  // }
+
   _getPosition() {
     if (navigator.geolocation)
       navigator.geolocation.getCurrentPosition(
-        this._loadMap.bind(this),
+        position => this._loadMap.bind(position),
 
-        this._loadFallBackMap.bind(this)
+        err => this._loadFallBackMap.bind(err)
       );
   }
 
